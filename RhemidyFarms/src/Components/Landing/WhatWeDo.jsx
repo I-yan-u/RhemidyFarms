@@ -151,7 +151,7 @@
 
 // export default WhatWeDo;
 
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 // Using placeholder images - replace with your actual imports
 import PoultryImage from '../../assets/images/Poultry.jpg';
@@ -210,7 +210,7 @@ const WhatWeDo = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Title */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -241,17 +241,17 @@ const WhatWeDo = () => {
             </span>{' '}
             to every aspect of our agricultural journey.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Poultry Section */}
-        <motion.div
+        <Motion.div
           className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 mb-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 flex justify-center"
             variants={itemVariants}
           >
@@ -280,9 +280,9 @@ const WhatWeDo = () => {
                 ></div>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 text-center lg:text-left"
             variants={itemVariants}
           >
@@ -327,18 +327,18 @@ const WhatWeDo = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
 
         {/* Fish Farming Section */}
-        <motion.div
+        <Motion.div
           className="flex flex-col lg:flex-row-reverse items-center justify-center gap-12 lg:gap-20 mb-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 flex justify-center"
             variants={itemVariants}
           >
@@ -382,9 +382,9 @@ const WhatWeDo = () => {
                 ></div>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 text-center lg:text-left"
             variants={itemVariants}
           >
@@ -431,18 +431,18 @@ const WhatWeDo = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
 
         {/* Grill Section */}
-        <motion.div
+        <Motion.div
           className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 flex justify-center"
             variants={itemVariants}
           >
@@ -486,9 +486,9 @@ const WhatWeDo = () => {
                 ></div>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             className="w-full lg:w-1/2 text-center lg:text-left"
             variants={itemVariants}
           >
@@ -559,8 +559,8 @@ const WhatWeDo = () => {
                 </svg>
               </button>
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
     </div>
   );
