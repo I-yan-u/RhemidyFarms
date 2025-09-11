@@ -542,7 +542,16 @@ const WhatWeDo = () => {
               </div>
 
               {/* CTA Button */}
-              <button className="group px-8 py-4 bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+              <button
+                onClick={() => (
+                  window.open(
+                    'https://wa.me/2348056021086?text=Hello%2C%20I%20would%20like%20to%20order%20grilled%20items%20from%20Rhemidy%20Farms.',
+                    '_blank',
+                  ),
+                  window.focus()
+                )}
+                className="group px-8 py-4 bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
+              >
                 <span>Order Grilled Items</span>
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
