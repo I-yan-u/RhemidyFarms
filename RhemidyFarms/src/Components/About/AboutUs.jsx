@@ -1,0 +1,504 @@
+// import {
+//   CheckCircle,
+//   Leaf,
+//   Fish,
+//   Users,
+//   Award,
+//   Flame,
+//   Truck,
+// } from 'lucide-react';
+
+// const AboutUs = () => {
+//   const FishPondImage = '/about/FishPond.webp';
+
+//   const features = [
+//     {
+//       icon: Leaf,
+//       title: 'Sustainable Practices',
+//       description: 'Eco-friendly farming with organic methods',
+//     },
+//     {
+//       icon: Fish,
+//       title: 'Fresh Quality',
+//       description: 'Daily fresh poultry and fish products',
+//     },
+//     {
+//       icon: Users,
+//       title: 'Community Focused',
+//       description: 'Supporting local families for about 5 years',
+//     },
+//     {
+//       icon: Award,
+//       title: 'Premium Standards',
+//       description: 'Highest quality standards in everything we do',
+//     },
+//     {
+//       icon: Flame,
+//       title: 'Grilled & Smoked',
+//       description: 'Ready-to-eat options for your convenience',
+//     },
+//     {
+//       icon: Truck,
+//       title: 'Delivery Services',
+//       description: 'Fast and reliable delivery to your doorstep',
+//     },
+//   ];
+
+//   const values = [
+//     'Antibiotic Free',
+//     'Free Range',
+//     'Ethical Raised',
+//     'Fresh Daily',
+//     'Locally Sourced',
+//     'Sustainably Farmed',
+//   ];
+
+//   return (
+//     <section className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
+//       {/* Hero Section */}
+//       <div className="relative">
+//         <div className="w-full h-[50vh] overflow-hidden relative">
+//           <img
+//             src={FishPondImage}
+//             alt="Fish Pond"
+//             className="w-full h-full object-cover"
+//           />
+//           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
+
+//           {/* Hero Content */}
+//           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+//             <div className="inline-flex items-center px-4 py-2 bg-emerald-500/90 text-white text-sm font-medium rounded-full my-3 backdrop-blur-sm">
+//               <Leaf className="w-4 h-4 mr-2" />
+//               Our Story
+//             </div>
+//             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+//               About <span className="text-emerald-300">Us</span>
+//             </h1>
+//             <p className="text-xl text-emerald-100 max-w-2xl">
+//               Three decades of sustainable farming excellence
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="container mx-auto px-4 py-16">
+//         {/* Main Content */}
+//         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+//           <div className="space-y-8">
+//             <div>
+//               <div className="inline-flex items-center px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full mb-4">
+//                 <CheckCircle className="w-4 h-4 mr-2" />
+//                 Established 2020
+//               </div>
+//               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+//                 Your <span className="text-emerald-600">Reliable Source</span>
+//                 <br />
+//                 for Fresh Poultry & Fish
+//               </h2>
+//             </div>
+
+//             <div className="space-y-6 text-gray-700 leading-relaxed">
+//               <p className="text-lg">
+//                 <span className="font-semibold text-emerald-600">
+//                   Rhemidy Farms
+//                 </span>{' '}
+//                 is a family-owned agricultural business dedicated to sustainable
+//                 farming practices and high-quality produce. We have been serving
+//                 our community with
+//                 <span className="font-medium">
+//                   {' '}
+//                   fresh, healthy, and delicious
+//                 </span>{' '}
+//                 products for over five years.
+//               </p>
+
+//               <p>
+//                 Our mission is to provide healthy and nutritious food while
+//                 promoting environmental stewardship. We believe in the
+//                 importance of supporting local agriculture and fostering a
+//                 connection between consumers and the source of their food.
+//               </p>
+
+//               <p>
+//                 At Rhemidy Farms, we utilize eco-friendly farming techniques,
+//                 including organic nutrition, natural breeding, and integrated
+//                 pest management. Our fish ponds are designed to promote
+//                 biodiversity and water conservation.
+//               </p>
+//             </div>
+
+//             <div className="flex flex-wrap gap-3 pt-4">
+//               {values.map((value, index) => (
+//                 <span
+//                   key={index}
+//                   className="inline-flex items-center px-3 py-2 bg-white border-2 border-emerald-200 text-emerald-700 text-sm font-medium rounded-full hover:bg-emerald-50 transition-colors"
+//                 >
+//                   <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+//                   {value}
+//                 </span>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Features Grid */}
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//             {features.map((feature, index) => (
+//               <div
+//                 key={index}
+//                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+//               >
+//                 <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+//                   <feature.icon className="w-6 h-6 text-white" />
+//                 </div>
+//                 <h3 className="text-lg font-bold text-gray-900 mb-2">
+//                   {feature.title}
+//                 </h3>
+//                 <p className="text-gray-600 text-sm leading-relaxed">
+//                   {feature.description}
+//                 </p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* Bottom CTA Section */}
+//         <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+//           <div className="absolute inset-0 bg-black/5"></div>
+//           <div className="relative z-10">
+//             <div className="inline-flex items-center px-4 py-2 bg-white/20 text-white text-sm font-medium rounded-full mb-6 backdrop-blur-sm">
+//               <Award className="w-4 h-4 mr-2" />
+//               Experience the Difference
+//             </div>
+//             <h2 className="text-3xl md:text-4xl font-bold mb-4">
+//               Your Reliable source for Fresh Poultry & Fish
+//             </h2>
+//             <p className="text-emerald-100 mb-8 max-w-2xl mx-auto text-lg">
+//               We are committed to continuous improvement and innovation in our
+//               farming practices to ensure that we meet the evolving needs of our
+//               customers and the environment.
+//             </p>
+//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+//               <button className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl hover:bg-gray-50 transition-colors shadow-lg">
+//                 Start Shopping →
+//               </button>
+//               <button className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm">
+//                 View our Services
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Decorative elements */}
+//           <div className="absolute top-8 right-8 w-24 h-24 border-2 border-white/20 rounded-full"></div>
+//           <div className="absolute bottom-8 left-8 w-16 h-16 bg-white/10 rounded-full"></div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default AboutUs;
+
+import {
+  CheckCircle,
+  Leaf,
+  Fish,
+  Users,
+  Award,
+  Flame,
+  Truck,
+} from 'lucide-react';
+import { motion as Motion } from 'framer-motion';
+
+const AboutUs = () => {
+  const FishPondImage = '/about/FishPond.webp';
+
+  const features = [
+    {
+      icon: Leaf,
+      title: 'Sustainable Practices',
+      description: 'Eco-friendly farming with organic methods',
+    },
+    {
+      icon: Fish,
+      title: 'Fresh Quality',
+      description: 'Daily fresh poultry and fish products',
+    },
+    {
+      icon: Users,
+      title: 'Community Focused',
+      description: 'Supporting local families for about 5 years',
+    },
+    {
+      icon: Award,
+      title: 'Premium Standards',
+      description: 'Highest quality standards in everything we do',
+    },
+    {
+      icon: Flame,
+      title: 'Grilled & Smoked',
+      description: 'Ready-to-eat options for your convenience',
+    },
+    {
+      icon: Truck,
+      title: 'Delivery Services',
+      description: 'Fast and reliable delivery to your doorstep',
+    },
+  ];
+
+  const values = [
+    'Antibiotic Free',
+    'Free Range',
+    'Ethical Raised',
+    'Fresh Daily',
+    'Locally Sourced',
+    'Sustainably Farmed',
+  ];
+
+  // Animation variants
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const scaleIn = {
+    initial: { scale: 0.9, opacity: 0 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
+
+  const staggerContainer = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  return (
+    <section className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
+      {/* Hero Section */}
+      <div className="relative">
+        <div className="w-full h-[50vh] overflow-hidden relative">
+          <Motion.img
+            src={FishPondImage}
+            alt="Fish Pond"
+            className="w-full h-full object-cover rounded-b-3xl"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          />
+          <div className="absolute inset-0 rounded-b-3xl bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
+
+          {/* Hero Content */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+            <Motion.div
+              className="inline-flex items-center px-4 py-2 bg-emerald-500/90 text-white text-sm font-medium rounded-full my-3 backdrop-blur-sm"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Leaf className="w-4 h-4 mr-2" />
+              Our Story
+            </Motion.div>
+            <Motion.h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              About <span className="text-emerald-300">Us</span>
+            </Motion.h1>
+            <Motion.p
+              className="text-xl text-emerald-100 max-w-2xl"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              Three decades of sustainable farming excellence
+            </Motion.p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-16">
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <Motion.div
+            className="space-y-8"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <Motion.div variants={fadeIn}>
+              <div className="inline-flex items-center px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full mb-4">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                Established 2020
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Your <span className="text-emerald-600">Reliable Source</span>
+                <br />
+                for Fresh Poultry & Fish
+              </h2>
+            </Motion.div>
+
+            <Motion.div
+              className="space-y-6 text-gray-700 leading-relaxed"
+              variants={fadeIn}
+            >
+              <p className="text-lg">
+                <span className="font-semibold text-emerald-600">
+                  Rhemidy Farms
+                </span>{' '}
+                is a family-owned agricultural business dedicated to sustainable
+                farming practices and high-quality produce. We have been serving
+                our community with
+                <span className="font-medium">
+                  {' '}
+                  fresh, healthy, and delicious
+                </span>{' '}
+                products for over five years.
+              </p>
+
+              <p>
+                Our mission is to provide healthy and nutritious food while
+                promoting environmental stewardship. We believe in the
+                importance of supporting local agriculture and fostering a
+                connection between consumers and the source of their food.
+              </p>
+
+              <p>
+                At Rhemidy Farms, we utilize eco-friendly farming techniques,
+                including organic nutrition, natural breeding, and integrated
+                pest management. Our fish ponds are designed to promote
+                biodiversity and water conservation.
+              </p>
+            </Motion.div>
+
+            <Motion.div
+              className="flex flex-wrap gap-3 pt-4"
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
+              {values.map((value, index) => (
+                <Motion.span
+                  key={index}
+                  className="inline-flex items-center px-3 py-2 bg-white border-2 border-emerald-200 text-emerald-700 text-sm font-medium rounded-full hover:bg-emerald-50 transition-colors"
+                  variants={fadeIn}
+                >
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                  {value}
+                </Motion.span>
+              ))}
+            </Motion.div>
+          </Motion.div>
+
+          {/* Features Grid */}
+          <Motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {features.map((feature, index) => (
+              <Motion.div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                variants={scaleIn}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </Motion.div>
+            ))}
+          </Motion.div>
+        </div>
+
+        {/* Bottom CTA Section */}
+        <Motion.div
+          className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-black/5"></div>
+          <Motion.div
+            className="relative z-10"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <Motion.div
+              className="inline-flex items-center px-4 py-2 bg-white/20 text-white text-sm font-medium rounded-full mb-6 backdrop-blur-sm"
+              variants={fadeIn}
+            >
+              <Award className="w-4 h-4 mr-2" />
+              Experience the Difference
+            </Motion.div>
+            <Motion.h2
+              className="text-3xl md:text-4xl font-bold mb-4"
+              variants={fadeIn}
+            >
+              Your Reliable source for Fresh Poultry & Fish
+            </Motion.h2>
+            <Motion.p
+              className="text-emerald-100 mb-8 max-w-2xl mx-auto text-lg"
+              variants={fadeIn}
+            >
+              We are committed to continuous improvement and innovation in our
+              farming practices to ensure that we meet the evolving needs of our
+              customers and the environment.
+            </Motion.p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Motion.button
+                className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl hover:bg-gray-50 transition-colors shadow-lg"
+                variants={fadeIn}
+              >
+                Start Shopping →
+              </Motion.button>
+              <Motion.button
+                className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm"
+                variants={fadeIn}
+              >
+                View our Services
+              </Motion.button>
+            </div>
+          </Motion.div>
+
+          {/* Decorative elements are now Motion components */}
+          <Motion.div
+            className="absolute top-8 right-8 w-24 h-24 border-2 border-white/20 rounded-full"
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          ></Motion.div>
+          <Motion.div
+            className="absolute bottom-8 left-8 w-16 h-16 bg-white/10 rounded-full"
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          ></Motion.div>
+        </Motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutUs;

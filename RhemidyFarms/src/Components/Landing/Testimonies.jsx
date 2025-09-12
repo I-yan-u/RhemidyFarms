@@ -35,9 +35,9 @@ const Testimonies = () => {
     },
     {
       id: 3,
-      name: 'Chef Ibrahim Hassan',
+      name: 'Chef Ibrahim Olaitan',
       role: 'Executive Chef',
-      location: 'Abuja, Nigeria',
+      location: 'Abeokuta, Nigeria',
       avatar: TestimonyGreen,
       rating: 5,
       text: "The quality and consistency of Rhemidy's products have elevated our menu significantly. Their sustainable farming practices align perfectly with our restaurant's values. Simply outstanding!",

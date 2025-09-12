@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RhemidyLogo from '/RhemidyFarmsLogo.webp';
 import {
   Facebook,
@@ -7,15 +7,18 @@ import {
   Linkedin,
   Phone,
   Mail,
+  MapIcon,
+  MapPin,
 } from 'lucide-react';
 
 const Footer = () => {
+  const navigate = useNavigate();
   const navlinks = [
     { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Products', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Products', href: '/products' },
+    { name: 'Services', href: '/services' },
+    { name: 'Contact Us', href: '/contact/#' },
   ];
 
   const socialLinks = [
@@ -39,7 +42,7 @@ const Footer = () => {
             <span className="text-2xl font-bold text-white">Rhemidy Farms</span>
           </div>
           <p className="text-gray-300 text-sm mt-2 max-w-xs">
-            A Lagos-based farm committed to delivering the highest quality
+            A Lagos/Ogun-based farm committed to delivering the highest quality
             poultry and fish, from our farms to your table.
           </p>
         </div>
@@ -53,7 +56,7 @@ const Footer = () => {
             {navlinks.map((link) => (
               <li key={link.name}>
                 <a
-                  href={link.href}
+                  onClick={() => navigate(link.href)}
                   className="text-gray-300 hover:text-emerald-300 transition-colors duration-200 text-sm"
                 >
                   {link.name}
@@ -71,10 +74,10 @@ const Footer = () => {
           <ul className="space-y-3">
             <li>
               <a
-                href="tel:+2348000000000"
+                href="tel:+2348056021086"
                 className="flex items-center gap-2 text-gray-300 hover:text-emerald-300 transition-colors duration-200 text-sm"
               >
-                <Phone size={16} /> <span>+234 800 000 0000</span>
+                <Phone size={16} /> <span>+234 805 602 1086</span>
               </a>
             </li>
             <li>
@@ -86,7 +89,12 @@ const Footer = () => {
               </a>
             </li>
             <li className="text-gray-300 text-sm">
-              123 Farm Road, Lagos, Nigeria
+              <MapPin size={16} />
+              <span>2, Church Street, Ajegunle bus stop, Lagos, Nigeria</span>
+            </li>
+            <li className="text-gray-300 text-sm">
+              <MapIcon size={16} />
+              <span>Plot 5/7, Osolo Road, Ilogbo, Ogun state, Nigeria</span>
             </li>
           </ul>
         </div>

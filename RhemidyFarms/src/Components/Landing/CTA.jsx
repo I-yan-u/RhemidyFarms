@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,7 +67,10 @@ const CTA = () => {
                 </svg>
               </button>
 
-              <button className="px-8 py-4 bg-white text-green-700 border-2 border-green-200 rounded-full font-semibold hover:bg-green-50 hover:border-green-300 transition-all duration-300 flex items-center gap-2 group">
+              <button
+                onClick={() => navigate('/contact')}
+                className="px-8 py-4 bg-white text-green-700 border-2 border-green-200 rounded-full font-semibold hover:bg-green-50 hover:border-green-300 transition-all duration-300 flex items-center gap-2 group"
+              >
                 <svg
                   className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
                   fill="none"

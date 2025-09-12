@@ -3,20 +3,24 @@ import rhemidyLogo from '/RhemidyFarmsLogo.webp';
 import Button from '../button/Button';
 import { Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
+  const [nameColor, setNameColor] = useState('text-green-700');
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Update active link based on current path
     const path = location.pathname;
+    setNameColor('text-green-700');
     if (path === '/') {
       setActiveLink('Home');
     } else if (path === '/about') {
+      setNameColor('text-white');
       setActiveLink('About');
     } else if (path === '/products') {
       setActiveLink('Products');
@@ -28,10 +32,10 @@ const Navbar = () => {
   }, [location]);
 
   const navlinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Products', href: '#' },
-    { name: 'Services', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Products', href: '/products' },
+    { name: 'Services', href: '/services' },
   ];
 
   const toggleMenu = () => {
@@ -70,21 +74,21 @@ const Navbar = () => {
             className="h-10 w-10 sm:h-12 sm:w-12"
             alt="Rhemidy Farms Logo"
           />
-          <h1 className="text-xl font-bold text-green-700 md:text-2xl">
+          <h1 className={`${nameColor} text-xl font-bold md:text-2xl`}>
             Rhemidy Farms
           </h1>
         </a>
 
         {/* Desktop Navigation Links */}
         <div className="hidden items-center lg:flex">
-          <span className="flex items-center rounded-full bg-white/90 px-3 py-2">
+          <span className="flex items-center rounded-full drop-shadow-2xl bg-white/90 px-3 py-2">
             {navlinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                onClick={() => navigate(link.href)}
                 className={`mx-4 text-sm font-medium ${
-                  activeLink === link.name ? 'text-green-500' : 'text-gray-700'
-                } transition-colors hover:text-green-700 md:text-base`}
+                  activeLink === link.name ? 'text-green-500' : 'text-gray-500'
+                } transition-colors cursor-pointer hover:text-green-700 md:text-base`}
               >
                 {link.name}
               </a>
@@ -96,7 +100,7 @@ const Navbar = () => {
         <div className="hidden lg:block">
           <Button
             content="Contact Us"
-            link={'/contact-us'}
+            link={'/contact'}
             otherClass={'text-md font-light'}
             icon={<Phone size={16} />}
           />
@@ -121,9 +125,11 @@ const Navbar = () => {
             {navlinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
-                className="w-full py-3 pr-10 text-right text-xl font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-green-700"
-                onClick={toggleMenu}
+                onClick={() => {
+                  navigate(link.href);
+                  toggleMenu;
+                }}
+                className="w-full py-3 pr-10 text-right text-xl font-medium text-gray-700 cursor-pointer transition-colors hover:bg-gray-100 hover:text-green-700"
               >
                 {link.name}
               </a>
@@ -131,7 +137,7 @@ const Navbar = () => {
             <div className="mt-4">
               <Button
                 content="Contact Us"
-                link={'/contact-us'}
+                link={'/contact'}
                 otherClass={'text-lg font-light w-full'}
                 icon={<Phone size={16} />}
               />
