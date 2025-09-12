@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { CheckCheck, Star } from 'lucide-react';
-import TestimonyBlue from '../../assets/images/TestimonyBlue.png';
-import TestimonyPink from '../../assets/images/TestimonyPink.png';
-import TestimonyPurple from '../../assets/images/TestimonyPurple.png';
-import TestimonyOrange from '../../assets/images/TestimonyOrange.png';
-import TestimonyGreen from '../../assets/images/TestimonyGreen.png';
+import TestimonyBlue from '/TestimonyBlue.webp';
+import TestimonyPink from '/TestimonyPink.webp';
+import TestimonyPurple from '/TestimonyPurple.webp';
+import TestimonyOrange from '/TestimonyOrange.webp';
+import TestimonyGreen from '/TestimonyGreen.webp';
 
 const Testimonies = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -219,6 +219,7 @@ const Testimonies = () => {
                     <img
                       src={currentTestimonial.avatar}
                       alt={currentTestimonial.name}
+                      loading="lazy"
                       className="relative w-20 h-20 rounded-full mx-auto md:mx-0 object-cover border-4 border-white shadow-lg transition-transform duration-500 hover:scale-110"
                     />
 

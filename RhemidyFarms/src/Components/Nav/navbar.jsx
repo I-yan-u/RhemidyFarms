@@ -1,5 +1,5 @@
 import '../../index.css';
-import rhemidyLogo from '/RhemidyFarmsLogo.svg';
+import rhemidyLogo from '/RhemidyFarmsLogo.webp';
 import Button from '../button/Button';
 import { Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';

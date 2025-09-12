@@ -154,9 +154,9 @@
 import { motion as Motion } from 'framer-motion';
 
 // Using placeholder images - replace with your actual imports
-import PoultryImage from '../../assets/images/Poultry.jpg';
-import FishFarm from '../../assets/images/FishFarm.jpg';
-import GrilledFish from '../../assets/images/GrilledFish.jpg';
+import PoultryImage from '/images/Poultry.webp';
+import FishFarm from '/images/FishFarm.webp';
+import GrilledFish from '/images/GrilledFish.webp';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -263,6 +263,7 @@ const WhatWeDo = () => {
               <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-green-100 hover:shadow-3xl transition-all duration-500">
                 <img
                   src={PoultryImage}
+                  loading="lazy"
                   alt="Poultry Farming"
                   className="w-full md:w-[500px] h-auto md:h-[400px] object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
                 />
@@ -350,6 +351,7 @@ const WhatWeDo = () => {
               <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-green-100 hover:shadow-3xl transition-all duration-500">
                 <img
                   src={FishFarm}
+                  loading="lazy"
                   alt="Fish Farming"
                   className="w-full md:w-[500px] h-auto md:h-[400px] object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
                 />
@@ -454,6 +456,7 @@ const WhatWeDo = () => {
               <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-green-100 hover:shadow-3xl transition-all duration-500">
                 <img
                   src={GrilledFish}
+                  loading="lazy"
                   alt="Grilled Fish"
                   className="w-full md:w-[500px] h-auto md:h-[400px] object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
                 />

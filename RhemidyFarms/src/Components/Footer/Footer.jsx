@@ -1,5 +1,5 @@
 import React from 'react';
-import RhemidyLogo from '../../assets/svg/RhemidyFarmsLogo.svg';
+import RhemidyLogo from '/RhemidyFarmsLogo.webp';
 import {
   Facebook,
   Instagram,

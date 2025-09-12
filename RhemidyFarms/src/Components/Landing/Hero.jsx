@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Henlo from '../../assets/images/Hen.png';
-import Hake from '../../assets/images/Hake.png';
-import Tilapia from '../../assets/images/Tilapia.png';
-import Eggs from '../../assets/images/Eggs.png';
+import Henlo from '/images/Hen.webp';
+import Hake from '/images/Hake.webp';
+import Tilapia from '/images/Tilapia.webp';
+import Eggs from '/images/Eggs.webp';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
