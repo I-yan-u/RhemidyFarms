@@ -4,6 +4,9 @@ import { motion as Motion } from 'framer-motion';
 import PoultryImage from '/images/Poultry.webp';
 import FishFarm from '/images/FishFarm.webp';
 import GrilledFish from '/images/GrilledFish.webp';
+import DeliveryVan from '/images/DeliveryVan.webp';
+
+import CtaComponent from '../CtaComponent';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -285,7 +288,7 @@ const ServiceComponent = () => {
 
         {/* Grill Section */}
         <Motion.div
-          className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20"
+          className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 mb-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -435,43 +438,21 @@ const ServiceComponent = () => {
           >
             <div className="relative group">
               {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-400 to-red-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
 
               {/* Image Container */}
               <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-3xl shadow-2xl border border-green-100 hover:shadow-3xl transition-all duration-500">
                 <img
-                  src={FishFarm}
+                  src={DeliveryVan}
                   loading="lazy"
                   alt="Fish Farming"
                   className="w-full md:w-[500px] h-auto md:h-[400px] object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
                 />
 
                 {/* Floating badge */}
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-300">
-                  🐟 Fresh Fish
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-300">
+                  ⚡ Fast Delivery
                 </div>
-
-                {/* Water ripple effect */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex justify-center space-x-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                    <div
-                      className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
-                      style={{ animationDelay: '0.1s' }}
-                    ></div>
-                    <div
-                      className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                      style={{ animationDelay: '0.2s' }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Decorative elements */}
-                <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-full animate-pulse"></div>
-                <div
-                  className="absolute -top-2 right-4 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"
-                  style={{ animationDelay: '1.5s' }}
-                ></div>
               </div>
             </div>
           </Motion.div>
@@ -482,49 +463,55 @@ const ServiceComponent = () => {
           >
             <div className="max-w-xl mx-auto lg:mx-0">
               {/* Section badge */}
-              <div className="inline-block px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold rounded-full mb-4">
-                ECO-FRIENDLY
+              <div className="inline-block px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold rounded-full mb-4">
+                FAST DELIVERY
               </div>
 
               <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Eco-Friendly{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                  Fish Farming
+                Fast{' '}
+                <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+                  Door Delivery
                 </span>
               </h3>
 
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                In addition to poultry, we are also dedicated to fish farming,
-                cultivating a variety of fish species in eco-friendly ponds. Our
-                fish farming practices focus on maintaining water quality and
-                promoting natural growth, resulting in fresh and nutritious fish
-                products for our customers.
+                Enjoy the convenience of our fast door delivery service,
+                bringing fresh poultry and fish products straight to your
+                doorstep. We prioritize quick and reliable delivery to ensure
+                that your order arrives in perfect condition, ready to be
+                enjoyed. Experience the ease of having high-quality, sustainably
+                farmed food delivered right to you.
               </p>
 
               {/* Features */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Clean Water</span>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Fast Delivery</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Natural Growth</span>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Trusted Drivers</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                   <span className="text-sm text-gray-600">
-                    Multiple Species
+                    Eco friendly vehicles
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">Nutritious</span>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600">Package safety</span>
                 </div>
               </div>
             </div>
           </Motion.div>
         </Motion.div>
+
+        <CtaComponent
+          secondaryButtonName={'Story'}
+          secondaryButtonLink={'/about'}
+        />
       </div>
     </div>
   );
