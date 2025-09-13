@@ -132,11 +132,11 @@ const Hero = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div
-              onClick={() => navigate('/products')}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-            >
-              <button className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <button
+                onClick={() => navigate('/products')}
+                className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+              >
                 <span>Start Shopping</span>
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
