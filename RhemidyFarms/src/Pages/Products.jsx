@@ -1,9 +1,10 @@
 import Container from '../Components/container';
+import ProductsPage from '../Components/Products/Products';
 
 const Products = () => {
   return (
     <Container>
-      <div>Products</div>
+      <ProductsPage />
     </Container>
   );
 };

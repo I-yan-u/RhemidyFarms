@@ -23,6 +23,7 @@ const Navbar = () => {
       setNameColor('text-white');
       setActiveLink('About');
     } else if (path === '/products') {
+      setNameColor('text-white');
       setActiveLink('Products');
     } else if (path === '/services') {
       setActiveLink('Services');
@@ -80,7 +81,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden items-center lg:flex">
+        <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <span className="flex items-center rounded-full drop-shadow-2xl bg-white/90 px-3 py-2">
             {navlinks.map((link) => (
               <a
