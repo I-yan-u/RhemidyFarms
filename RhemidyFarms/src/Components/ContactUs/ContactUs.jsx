@@ -4,12 +4,23 @@ import { Send, Mail, Phone, MapPin, MapIcon, Check } from 'lucide-react';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    message: '',
+    sender: '',
+    subject: '',
+    messageBody: '',
+    to: 'info@rhemidyfarms.com',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [toastMsg, setToastMsg] = useState('');
+
+  const config = {
+    user: 'setho@rhemidyfarms.com',
+    pass: 'seth@RhemidyFarms',
+    host: 'smtp.zoho.com',
+    port: '465',
+    type: 'smtp',
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,25 +33,55 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSent(true);
-    // Hide the "Sent" message after 3 seconds
-    setTimeout(() => setSent(false), 3000);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      // Simulate form submission
+      const response = await fetch('https://yandev-mailer.vercel.app/send', {
+        // const response = await fetch('http://localhost:8081/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, config }),
+      });
+
+      if (!response.ok) {
+        // Handle error
+        setIsSubmitting(false);
+        throw new Error('Network response was not ok');
+      }
+      setIsSubmitting(false);
+      setSent(true);
+      setToastMsg('Message sent successfully!');
+    } catch (error) {
+      setIsSubmitting(false);
+      setSent(true);
+      setToastMsg('Failed to send message.');
+      console.error('Error submitting form:', error);
+      return;
+    } finally {
+      setFormData({
+        name: '',
+        sender: '',
+        messageBody: '',
+        subject: '',
+        to: 'info@rhemidyfarms.com',
+      });
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSent(false);
+      }, 4000);
+    }
   };
 
   return (
     <section className="flex items-center justify-center w-[100%] min-h-screen px-4 py-32">
       <div className="flex flex-row w-full max-w-6xl h-auto lg:h-screen bg-white rounded-3xl shadow-2xl overflow-hidden">
         {sent && (
-          <div className="fixed z-10 top-20 left-[50%] w-24 bg-black/80 rounded-full text-white flex items-center justify-start gap-2 p-2 shadow-lg">
+          <div className="fixed z-10 top-[70px] left-1/2 -translate-x-1/2 w-fit bg-black/80 rounded-full text-white flex items-center justify-start gap-2 p-2 shadow-lg">
             <span className="rounded-full p-1.5 bg-emerald-400">
               <Check size={16} className="font-medium" color="white" />
             </span>
-            <h3>Sent</h3>
+            <h3>{toastMsg}</h3>
           </div>
         )}
         {/* Left Panel - Contact Info */}
@@ -112,11 +153,11 @@ const ContactUs = () => {
             <h3 className="text-3xl font-bold text-gray-800 mb-2">
               Send Message
             </h3>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mb-4">
               Fill out the details below and we'll get back to you shortly.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-2">
               <div className="group">
                 <label className="block text-sm font-medium text-gray-700 mb-2 transition-colors group-focus-within:text-emerald-600">
                   Full Name
@@ -127,7 +168,7 @@ const ContactUs = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400"
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -138,12 +179,27 @@ const ContactUs = () => {
                 </label>
                 <input
                   type="email"
-                  name="email"
-                  value={formData.email}
+                  name="sender"
+                  value={formData.sender}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400"
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400"
                   placeholder="Enter your email address"
+                />
+              </div>
+
+              <div className="group">
+                <label className="block text-sm font-medium text-gray-700 mb-2 transition-colors group-focus-within:text-emerald-600">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400"
+                  placeholder="Enter your full name"
                 />
               </div>
 
@@ -152,12 +208,12 @@ const ContactUs = () => {
                   Message
                 </label>
                 <textarea
-                  name="message"
-                  value={formData.message}
+                  name="messageBody"
+                  value={formData.messageBody}
                   onChange={handleChange}
                   required
-                  rows="5"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400 resize-none"
+                  rows="4"
+                  className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:border-emerald-500 focus:ring-0 transition-all duration-300 bg-gray-50 focus:bg-white text-gray-800 placeholder-gray-400 resize-none"
                   placeholder="Tell us about your inquiry..."
                 ></textarea>
               </div>
@@ -166,7 +222,7 @@ const ContactUs = () => {
                 type="button"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:from-emerald-600 hover:to-teal-700 focus:ring-4 focus:ring-emerald-200 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-3 px-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:from-emerald-600 hover:to-teal-700 focus:ring-4 focus:ring-emerald-200 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

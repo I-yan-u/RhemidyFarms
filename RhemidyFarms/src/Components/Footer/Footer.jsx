@@ -22,9 +22,21 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', href: '#', icon: <Facebook size={20} /> },
-    { name: 'Instagram', href: '#', icon: <Instagram size={20} /> },
-    { name: 'Twitter', href: '#', icon: <Twitter size={20} /> },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/rhemidyfarms/',
+      icon: <Instagram size={20} />,
+    },
+    {
+      name: 'Twitter',
+      href: 'https://www.x.com/RhemidyFarms/',
+      icon: <Twitter size={20} />,
+    },
+    {
+      name: 'Facebook',
+      href: 'https://facebook.com/rhemidy.farm',
+      icon: <Facebook size={20} />,
+    },
     { name: 'LinkedIn', href: '#', icon: <Linkedin size={20} /> },
   ];
 
